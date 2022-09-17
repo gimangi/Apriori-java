@@ -26,20 +26,25 @@ public class Apriori {
         }
     }
 
+    public void print() {
+        for (int i = 0; i < largeSetList.size(); i++) {
+            System.out.println(i + 1 + ": " + largeSetList.get(i));
+        }
+    }
+
     /**
      * 주어진 data set 으로부터 Apriori-Gen 반복.
-     * 연관관계를 얻기 위한 전처리 과정.
+     * 연관관계를 얻기 위한 과정.
      * @see Apriori#getFirstLargeSet()
      * @see Apriori#getNextLargeSet()
      *
      */
-    public void init() {
+    public void run() {
         largeSetList.add(getFirstLargeSet());
 
         List<Set<String>> cSet;
         while (!(cSet = getNextLargeSet()).isEmpty())
             largeSetList.add(cSet);
-
     }
 
     /**
