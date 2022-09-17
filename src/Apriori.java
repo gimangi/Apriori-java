@@ -26,6 +26,13 @@ public class Apriori {
         }
     }
 
+    /**
+     * 주어진 data set 으로부터 Apriori-Gen 반복.
+     * 연관관계를 얻기 위한 전처리 과정.
+     * @see Apriori#getFirstLargeSet()
+     * @see Apriori#getNextLargeSet()
+     *
+     */
     public void init() {
         largeSetList.add(getFirstLargeSet());
 
@@ -37,7 +44,7 @@ public class Apriori {
 
     /**
      *
-     * @return 입력된 아이템으로부터 추출된 1번째 빈발 아이템 집합
+     * @return 입력된 아이템으로부터 추출된 1번째 빈발 아이템 집합.
      */
     private List<Set<String>> getFirstLargeSet() {
         HashMap<String, Integer> candidates = new HashMap<>();
@@ -68,7 +75,7 @@ public class Apriori {
 
     /**
      *
-     * @return i번째 빈발 아이템 집합으로부터 추출된 i+1번째 빈발 아이템 집합
+     * @return i번째 빈발 아이템 집합으로부터 추출된 i+1번째 빈발 아이템 집합.
      *
      */
     private List<Set<String>> getNextLargeSet() {
