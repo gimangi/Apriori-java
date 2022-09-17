@@ -1,16 +1,23 @@
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public class Main {
 
+    private static final String INPUT_DIR = "input";
     public static void main(String[] args) {
-        Apriori apriori = new Apriori(2);
+        try {
+            Apriori apriori = new Apriori(2);
+            TextReader tr = new TextReader(INPUT_DIR + File.separator + "test1.txt");
+            for (List<String> col : tr.getItems()) {
+                apriori.putColumn(col);
+            }
 
-        apriori.putColumn(List.of(new String[]{"Bread", "Jelly", "PeanutButter"}));
-        apriori.putColumn(List.of(new String[]{"Bread", "PeanutButter"}));
-        apriori.putColumn(List.of(new String[]{"Bread", "Milk", "PeanutButter"}));
-        apriori.putColumn(List.of(new String[]{"Beer", "Bread"}));
-        apriori.putColumn(List.of(new String[]{"Beer", "Milk"}));
-        apriori.run();
-        apriori.print();
+            apriori.run();
+            apriori.print();
+        } catch (IOException e) {
+            System.out.println("Can not read file.");
+        }
+
     }
 }
