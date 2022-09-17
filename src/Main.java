@@ -1,6 +1,15 @@
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
-        Apriori apriori = new Apriori(0, 0);
+        Apriori apriori = new Apriori(1);
+
+        apriori.putColumn(List.of(new String[]{"Bread", "Jelly", "PeanutButter"}));
+        apriori.putColumn(List.of(new String[]{"Bread", "PeanutButter"}));
+        apriori.putColumn(List.of(new String[]{"Bread", "Milk", "PeanutButter"}));
+        apriori.putColumn(List.of(new String[]{"Beer", "Bread"}));
+        apriori.putColumn(List.of(new String[]{"Beer", "Milk"}));
+        apriori.init();
     }
 }
